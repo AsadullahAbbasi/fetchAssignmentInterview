@@ -1,0 +1,75 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Clock Needle on Logo</title>
+    <style>
+        /* Container for the clock */
+        .clock {
+        width: 200px; /* Adjust based on logo size */
+        height: 200px; /* Adjust based on logo size */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto; /* Center the clock in the viewport */
+        background-color: #f2e2c4; /* Optional background color */
+        border-radius: 50%; /* Optional if you want a round background */
+        border: 5px solid gold; /* Optional border */
+        }
+
+        /* Needle (minute hand) */
+        .needle {
+        width: 0; /* Set width to 0 for triangle */
+        height: 0; /* Set height to 0 for triangle */
+        border-left: 5px solid transparent; /* Left side of triangle */
+        border-right: 5px solid transparent; /* Right side of triangle */
+        border-bottom: 80px solid #ba983e; /* Bottom side of triangle (color of needle) */
+        position: absolute;
+        bottom: 45%; /* Center it vertically */
+        transform-origin: bottom; /* Set the rotation origin to the bottom */
+        animation: rotateNeedle 60s linear infinite; /* 1 minute rotation */
+        z-index: 10; /* Ensure needle is above logo */
+        }
+
+        /* Animation for rotating the needle */
+        @keyframes rotateNeedle {
+        from {
+            transform: rotate(-100deg);
+        }
+        to {
+            transform: rotate(100deg);
+        }
+        }
+
+        /* Logo image */
+        .logo {
+        width: 100%; /* Adjust as needed */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute; /* Position logo over the clock */
+        z-index: 1; /* Ensure logo is below the needle */
+        }
+
+        /* Optional styles for text */
+        .watch-name {
+        position: absolute;
+        bottom: -40px; /* Position below the clock */
+        text-align: center;
+        font-family: Arial, sans-serif; /* Use your desired font */
+        font-size: 24px; /* Adjust size */
+        color: black; /* Text color */
+        z-index: 5; /* Ensure text is above logo */
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="clock">
+        <img src="./clock.jpeg" alt="Wrist Craze Watches" class="logo"> <!-- Replace with your logo URL -->
+        <div class="needle"></div>
+        <div class="watch-name">Wrist Craze Watches</div>
+    </div>
+
+    </body>
+    </html>
